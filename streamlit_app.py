@@ -1,6 +1,6 @@
 # Import python packages
 import streamlit as st
-from snowflake.snowpark.context import get_active_session
+#from snowflake.snowpark.context import get_active_session
 from snowflake.snowpark.functions import col, when_matched
 
 # Write directly to the app
@@ -35,3 +35,6 @@ if my_dataframe:
             st.write('Something went wrong')
 else:
     st.success('There are no pending orders right now.', icon = '👍')
+
+cnx = st.connection("snowflake")
+session = cnx.session()
